@@ -1,0 +1,21 @@
+<h2 *ngIf="modeEdit" mat-dialog-title>Modifier joueur</h2>
+<h2 *ngIf="!modeEdit" mat-dialog-title>Ajouter joueur</h2>
+<hr>
+<mat-dialog-content>
+    <form class="edit-bot-form" [formGroup]="botForm">
+        <mat-form-field class="full-width-field" appearance="fill">
+            <mat-label>nom</mat-label>
+            <input type="name" matInput formControlName="name">
+        </mat-form-field>
+        <mat-form-field class="full-width-field" appearance="fill">
+            <mat-label>type de jeu</mat-label>
+            <input type="gameType" matInput formControlName="gameType" [disabled]="true">
+        </mat-form-field>
+    </form>
+</mat-dialog-content>
+<mat-dialog-actions>
+    <button mat-stroked-button mat-dialog-close>Annuler</button>
+    <!-- The mat-dialog-close directive optionally accepts a value as a result for the dialog. -->
+    <button mat-flat-button *ngIf="modeEdit" [disabled]="!canModifyBot()" (click)="modifyBot()" color="primary">Modifier</button>
+    <button mat-flat-button *ngIf="!modeEdit" (click)="modifyBot()" color="primary">Ajouter</button>
+</mat-dialog-actions>

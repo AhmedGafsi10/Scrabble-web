@@ -1,0 +1,3 @@
+<!-- TODO: Make a pop up on click if no gameType -->
+<!-- <div *ngIf="!hasGameType">Votre type de jeu est invalide, veillez retourner à la page d'accueil pour rechoisir</div> -->
+<button class="button important-button" (click)="joinRoom()" [disabled]="onProcess || !isFormValid || !hasValidGameType">Créer la partie</button>
